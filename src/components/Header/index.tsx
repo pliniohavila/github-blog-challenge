@@ -1,10 +1,11 @@
-import { HeaderComponent } from "../styles";
+import { HeaderComponent } from "./styles";
+import Logo from '../../assets/logo.svg';
 
 
 export function Header() {
   return (
     <HeaderComponent>
-      <h1>Github blog challenge</h1>
+      <img src={Logo} />
     </HeaderComponent>
   )
 }
