@@ -6,6 +6,4 @@ export const ContainerOutlet = styled.div`
   top: -4.5rem;
   margin: auto;
   width: 75%;
-
-  border: 2px solid red;
 `
