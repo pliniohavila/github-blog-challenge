@@ -1,11 +1,12 @@
 import { ArrowSquareUpRight, GithubLogo, HouseLine, Users } from 'phosphor-react'
-import { Profile } from './styles';
+import { Input, Profile } from './styles';
 
 import Avatar from '../../assets/avatar.png';
 
 
 export function Home() {
   return (
+    <>
     <Profile>
       <img src={Avatar} />
       <div className="profile-content">
@@ -21,5 +22,15 @@ export function Home() {
           </ul>
       </div>
     </Profile>
+
+    <Input>
+      <div className="input-header">
+        <h1>Publicações</h1>
+        <span>6 publicações</span>
+      </div>
+      <input type="text" name="search" placeholder="Buscar conteúdo"/>    
+    </Input>
+
+    </>
   )
 }
