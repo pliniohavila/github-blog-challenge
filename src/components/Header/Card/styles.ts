@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const CardDiv = styled.div`
+export const CardLink = styled.a`
   padding: 2rem 1.8rem;
   width: 48%;
   min-width: 200px;
@@ -32,5 +32,10 @@ export const CardDiv = styled.div`
       font-size: 0.8rem;
       line-height: 1.6;
     }
+  }
+
+  &:hover {
+    cursor: pointer;
+    outline: 2px solid ${(props) => props.theme['base-label']}; 
   }
 `;
