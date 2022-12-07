@@ -80,4 +80,11 @@ export const Input = styled.div`
       font-size: 0.8rem;
     }
   }
-`
+`;
+
+export const Cards = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+`;

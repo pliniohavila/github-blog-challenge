@@ -1,7 +1,8 @@
 import { ArrowSquareUpRight, GithubLogo, HouseLine, Users } from 'phosphor-react'
-import { Input, Profile } from './styles';
+import { Cards, Input, Profile } from './styles';
 
 import Avatar from '../../assets/avatar.png';
+import { Card } from '../../components/Header/Card';
 
 
 export function Home() {
@@ -30,6 +31,13 @@ export function Home() {
       </div>
       <input type="text" name="search" placeholder="Buscar conteúdo"/>    
     </Input>
+
+    <Cards>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </Cards>
 
     </>
   )
