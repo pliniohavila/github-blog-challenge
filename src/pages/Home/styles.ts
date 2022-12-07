@@ -17,7 +17,11 @@ export const Profile = styled.div`
     a {
       text-decoration: none;
       text-transform: uppercase;
-      line-height: 1.5;
+      line-height: 1.6;
+
+      &:hover {
+        color: ${(props) => props.theme['blue']};
+      }
     }
   }
 

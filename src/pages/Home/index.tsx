@@ -2,7 +2,7 @@ import { ArrowSquareUpRight, GithubLogo, HouseLine, Users } from 'phosphor-react
 import { Cards, Input, Profile } from './styles';
 
 import Avatar from '../../assets/avatar.png';
-import { Card } from '../../components/Header/Card';
+import { Card } from '../../components/Card';
 
 
 export function Home() {
@@ -16,11 +16,11 @@ export function Home() {
           <a href="#">github <ArrowSquareUpRight size={18} weight="bold" /> </a>
         </div>
         <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
-          <ul className="info">
-            <li><GithubLogo size={18} weight="bold" className="profile-info-label"/> cameronwll</li>
-            <li><HouseLine size={18} weight="bold" className="profile-info-label"/> Rocketseat</li>
-            <li><Users size={18} weight="bold" className="profile-info-label"/> 32 seguidores</li>
-          </ul>
+        <ul className="info">
+          <li><GithubLogo size={18} weight="bold" className="profile-info-label"/> cameronwll</li>
+          <li><HouseLine size={18} weight="bold" className="profile-info-label"/> Rocketseat</li>
+          <li><Users size={18} weight="bold" className="profile-info-label"/> 32 seguidores</li>
+        </ul>
       </div>
     </Profile>
 
