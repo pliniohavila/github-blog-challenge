@@ -25,6 +25,11 @@ export const Profile = styled.div`
     }
   }
 
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+
   h1 {
     color: ${(props) =>  props.theme['base-title']};
   }
