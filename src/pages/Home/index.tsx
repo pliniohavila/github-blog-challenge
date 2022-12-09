@@ -1,14 +1,14 @@
 import { ArrowSquareUpRight, GithubLogo, HouseLine, Users } from 'phosphor-react';
-import axios from 'axios';
-import { Cards, Input, Profile } from './styles';
+import { Cards, Profile } from './styles';
 
-import Avatar from '../../assets/avatar.png';
 import { Card } from '../../components/Card';
 import { useEffect, useState } from 'react';
+import { api } from '../../lib/axios';
+import { FormSearch } from '../../components/FormSearch';
 
 
 async function fetchProfile() {
-  const response = await axios.get('https://api.github.com/users/pliniocode');
+  const response = await api.get('/users/pliniocode');
   return response.data;
 }
 
@@ -16,7 +16,7 @@ export function Home() {
   const [dataProfile, setDataProfile] = useState<any>({});
 
   useEffect(() => {
-    fetchProfile().then((data) => {
+    const data = fetchProfile().then((data) => {
       setDataProfile(data);
     });
   }, [fetchProfile]);
@@ -39,13 +39,7 @@ export function Home() {
       </div>
     </Profile>
 
-    <Input>
-      <div className="input-header">
-        <h1>Publicações</h1>
-        <span>6 publicações</span>
-      </div>
-      <input type="text" name="search" placeholder="Buscar conteúdo"/>    
-    </Input>
+    <FormSearch />
 
     <Cards>
       <Card />
