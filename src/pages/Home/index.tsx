@@ -2,9 +2,10 @@ import { ArrowSquareUpRight, GithubLogo, HouseLine, Users } from 'phosphor-react
 import { Cards, Profile } from './styles';
 
 import { Card } from '../../components/Card';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { api } from '../../lib/axios';
 import { FormSearch } from '../../components/FormSearch';
+import { BlogContext } from '../../contexts/BlogContext';
 
 
 async function fetchProfile() {
@@ -14,9 +15,11 @@ async function fetchProfile() {
 
 export function Home() {
   const [dataProfile, setDataProfile] = useState<any>({});
+  const {content} = useContext(BlogContext);
+  console.log(content);
 
   useEffect(() => {
-    const data = fetchProfile().then((data) => {
+    fetchProfile().then((data) => {
       setDataProfile(data);
     });
   }, [fetchProfile]);
@@ -42,6 +45,7 @@ export function Home() {
     <FormSearch />
 
     <Cards>
+    {/* {url, title, created_at, body} */}
       <Card />
       <Card />
       <Card />
@@ -51,3 +55,6 @@ export function Home() {
     </>
   )
 }
+
+// 0: Object { url: "https://api.github.com/repos/pliniocode/github-blog-challenge/issues/5", title: "Me explique o hook useCallback do React", created_at: "2022-12-10T13:35:42Z", … }
+​
