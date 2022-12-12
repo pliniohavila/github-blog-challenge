@@ -13,6 +13,7 @@ export const CardLink = styled.a`
   p {
     color: ${(props) => props.theme['base-text']};
     line-height: 1.6;
+    /* width: 200pt; */
   }
 
   .card-header {

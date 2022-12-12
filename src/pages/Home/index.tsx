@@ -16,7 +16,6 @@ async function fetchProfile() {
 export function Home() {
   const [dataProfile, setDataProfile] = useState<any>({});
   const {content} = useContext(BlogContext);
-  console.log(content);
 
   useEffect(() => {
     fetchProfile().then((data) => {
@@ -45,11 +44,16 @@ export function Home() {
     <FormSearch />
 
     <Cards>
-    {/* {url, title, created_at, body} */}
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+
+    <>
+      {
+        content.map((post) => {
+          return (
+            <Card key={post.id} cardContent={post}/>
+          )
+        })
+      }
+    </>
     </Cards>
 
     </>
@@ -57,4 +61,3 @@ export function Home() {
 }
 
 // 0: Object { url: "https://api.github.com/repos/pliniocode/github-blog-challenge/issues/5", title: "Me explique o hook useCallback do React", created_at: "2022-12-10T13:35:42Z", … }
-​

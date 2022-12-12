@@ -1,14 +1,29 @@
 import { CardLink } from "./styles";
 
 
-export function Card() {
+type PostInfo = {
+  url :string, 
+  title: string, 
+  id: number,
+  created_at: string, 
+  body: string
+}
+
+type CardProps = {
+  key: number, 
+  cardContent: PostInfo,
+}
+
+
+export function Card(cardContent: CardProps) {
+  const {url, title, created_at, body} = cardContent.cardContent;
   return (
-    <CardLink href="#">
+    <CardLink href={url}>
       <div className="card-header">
-        <h2>JavaScript data types and data structures</h2>
-        <span>Há 1 dia</span>
+        <h2>{title}</h2>
+        <span>Há {created_at} dia</span>
       </div>
-      <p className="content-preview">Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in</p>
+      <p className="content-preview">{body.slice(0,200)}</p>
     </CardLink>
   )
 }
