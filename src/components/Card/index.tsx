@@ -1,3 +1,4 @@
+import { dateFormatter, daysBetweenDates } from "../../utils/formatter";
 import { CardLink } from "./styles";
 
 
@@ -21,7 +22,7 @@ export function Card(cardContent: CardProps) {
     <CardLink href={url}>
       <div className="card-header">
         <h2>{title}</h2>
-        <span>Há {created_at} dia</span>
+        <span>Há {daysBetweenDates(created_at)} dia(s)</span>
       </div>
       <p className="content-preview">{body.slice(0,200)}</p>
     </CardLink>
