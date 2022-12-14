@@ -20,7 +20,6 @@ export function FormSearch() {
 
   async function handleSearchIssues(data: searchFormInput) {
     await fetchIssues(data.query);
-    console.log(data)
   }
 
   return (
