@@ -4,6 +4,7 @@ import { CardLink } from "./styles";
 
 type PostInfo = {
   url :string, 
+  number: number,
   title: string, 
   id: number,
   created_at: string, 
@@ -17,9 +18,9 @@ type CardProps = {
 
 
 export function Card(cardContent: CardProps) {
-  const {url, title, created_at, body} = cardContent.cardContent;
+  const {number, title, created_at, body} = cardContent.cardContent;
   return (
-    <CardLink href={url}>
+    <CardLink href={`/post/${number}`}>
       <div className="card-header">
         <h2>{title}</h2>
         <span>Há {daysBetweenDates(created_at)} dia(s)</span>
