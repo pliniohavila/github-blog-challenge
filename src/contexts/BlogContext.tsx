@@ -4,16 +4,17 @@ import { api } from "../lib/axios";
 
 
 type PostType = {
-  url :string, 
+  url: string,
   number: number,
-  title: string, 
+  title: string,
   id: number,
-  created_at: string, 
+  created_at: string,
   body: string
 }
 
 type BlogContextType = {
-  content: PostType[]
+  content: PostType[],
+  fetchIssues: (query?: string) => Promise<void>;
 }
 
 type BlogContextProviderProps = {
@@ -22,7 +23,7 @@ type BlogContextProviderProps = {
 
 export const BlogContext = createContext({} as BlogContextType);
 
-export function BlogContextProvider({children}: BlogContextProviderProps) {
+export function BlogContextProvider({ children }: BlogContextProviderProps) {
   const [content, setContent] = useState<PostType[]>([]);
 
   async function fetchIssues(query?: string) {
@@ -31,8 +32,8 @@ export function BlogContextProvider({children}: BlogContextProviderProps) {
     }
     const response = await api.get(`/search/issues?q=${query}%20repo:pliniocode/github-blog-challenge`);
     const data = response.data.items.map((issue: any) => {
-      const {url, number, title, id, created_at, body} = issue;
-      return {url, number, title, id, created_at, body};
+      const { url, number, title, id, created_at, body } = issue;
+      return { url, number, title, id, created_at, body };
     });
     setContent(data);
   }
@@ -42,7 +43,7 @@ export function BlogContextProvider({children}: BlogContextProviderProps) {
   }, []);
 
   return (
-    <BlogContext.Provider value={{content}}>
+    <BlogContext.Provider value={{ content, fetchIssues }}>
       {children}
     </BlogContext.Provider>
   )
